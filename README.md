@@ -16,5 +16,8 @@ This API takes a string and returns the reversed version of the string.
     docker run -p 8080:8080 string-reversal-api
     ```
 
-3. Access the API at `http://localhost:8080`.
+3. Access the API at `http://localhost:8080`. You can send a GET request to this URL to reverse a string.
 
+## Example url
+
+http://localhost:8080/reverse?string=Hello%20World

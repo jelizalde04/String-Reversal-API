@@ -19,11 +19,11 @@ func reverseString(s string) string {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	var data map[string]string
-	decoder := json.NewDecoder(r.Body)
-	decoder.Decode(&data)
+	// Get the 'string' parameter from the URL query
+	query := r.URL.Query()
+	str := query.Get("string")
 
-	if str, ok := data["string"]; ok {
+	if str != "" {
 		reversed := reverseString(str)
 		response := Response{Reversed: reversed}
 		json.NewEncoder(w).Encode(response)

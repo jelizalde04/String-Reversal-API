@@ -4,14 +4,12 @@ FROM golang:1.18
 # Set the working directory
 WORKDIR /app
 
-# Copy the Go module files
-COPY go.mod go.sum ./
-
-# Download dependencies
-RUN go mod tidy
-
-# Copy the source code
+# Copy the source code (sin los archivos go.mod y go.sum)
 COPY . .
+
+# Run go mod tidy and build the app inside the container
+RUN go mod init string-reversal-api
+RUN go mod tidy
 
 # Expose the port
 EXPOSE 8080
